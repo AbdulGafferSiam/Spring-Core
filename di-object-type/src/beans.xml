@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+    <!-- MathCheat constructor called two times -->
+    <!-- For every bean need to cheat MathCheat object everytime  -->
+ 
+ 	<!-- <bean id="student" class="com.springproject.diobjtype.Student">
+ 		<property name="id" value="1001" />
+ 		<property name="mathCheat">
+ 			<bean class="com.springproject.diobjtype.MathCheat"></bean>
+ 		</property>
+ 	</bean>
+ 	
+ 	<bean id="anotherStudent" class="com.springproject.diobjtype.AnotherStudent">
+ 		<property name="cheat">
+ 			<bean class="com.springproject.diobjtype.MathCheat"></bean>
+ 		</property>
+ 	</bean> -->
+ 	
+ 	<bean id="cheatPaper" class="com.springproject.diobjtype.MathCheat"></bean>
+ 	
+ 	<bean id="student" class="com.springproject.diobjtype.Student">
+ 		<property name="id" value="1001" />
+ 		<property name="mathCheat" ref="cheatPaper" />
+ 	</bean>
+ 	
+ 	<bean id="anotherStudent" class="com.springproject.diobjtype.AnotherStudent">
+ 		<property name="cheat" ref="cheatPaper" />
+ 	</bean> 
+ 
+ </beans>
